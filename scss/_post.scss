@@ -1,0 +1,27 @@
+/**
+ * Project - Post
+ */
+
+ .post {
+  @include list-unstyled();
+  @include row(flex-start, flex-start);
+  gap: space("medium");
+
+  &__item {
+    display: block;
+    width: min(100%, 18rem);
+    margin: space("medium") auto;
+  }
+
+  &__image {
+    aspect-ratio: $img-aspect-ratio;
+    object-fit: cover;
+    margin-block-end: space();
+  }
+
+  &__date, &__title {
+    display: block;
+    margin-block-end: space("x-small");
+    line-height: 1;
+  }
+}

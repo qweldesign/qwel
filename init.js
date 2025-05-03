@@ -1,12 +1,34 @@
-// G Nav Shrink
-window.addEventListener('scroll', () => {
-  const gNav = document.getElementById('gNav');
-  if (0 < window.scrollY) {
-    gNav.classList.add('gNav--shrink');
-  } else {
-    gNav.classList.remove('gNav--shrink');
-  }
-});
+(async () => {
+  // G Nav Shrink
+  window.addEventListener('scroll', () => {
+    const gNav = document.getElementById('gNav');
+    if (0 < window.scrollY) {
+      gNav.classList.add('gNav--shrink');
+    } else {
+      gNav.classList.remove('gNav--shrink');
+    }
+  });
+
+  // 記事データを取得
+  const res = await fetch('./blog/posts.json');
+  const content = await res.json();
+
+  // Posts
+  const list = document.getElementById('post');
+  const template = document.getElementById('postTemplate');
+  content.forEach((post) => {
+    const item = template.content.cloneNode(true);
+    const a = item.querySelector('a');
+    const img = a.querySelector('.post__image');
+    const date = a.querySelector('.post__date');
+    const title = a.querySelector('.post__title');
+    a.setAttribute('href', `./blog/?post=${post.slug}`);
+    img.setAttribute('src', `./blog/images${post.imgUrl}`)
+    date.textContent = post.date;
+    title.textContent = post.title;
+    list.appendChild(item);
+  });
+})();
 
 // Auto Copyright
 import AutoCopyright from './js/autoCopyright.js';

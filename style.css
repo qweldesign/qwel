@@ -239,7 +239,7 @@ button, input, select, textarea {
   flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
-  gap: var(--spacing--large);
+  gap: 2.625rem;
   flex: 0 0 auto;
   margin: 0;
   font-family: var(--heading-font-family);
@@ -248,6 +248,7 @@ button, input, select, textarea {
   transition: all 0.5s ease;
 }
 .gNav--shrink .gNav__primaryMenu {
+  gap: 3rem;
   font-size: 1rem;
 }
 
@@ -848,6 +849,35 @@ button, input, select, textarea {
 .section__figure {
   width: min(100%, 45rem);
   margin: 0 auto;
+}
+
+/**
+ * Project - Post
+ */
+.post {
+  list-style: none;
+  padding-inline-start: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: var(--spacing--medium);
+}
+.post__item {
+  display: block;
+  width: min(100%, 18rem);
+  margin: var(--spacing--medium) auto;
+}
+.post__image {
+  aspect-ratio: 1.6;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-block-end: var(--spacing--small);
+}
+.post__date, .post__title {
+  display: block;
+  margin-block-end: var(--spacing--x-small);
+  line-height: 1;
 }
 
 /**
